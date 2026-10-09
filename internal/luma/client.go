@@ -1,4 +1,4 @@
-// Package luma is the only code that talks to the Luma API (docs/pcr/0004). It maps Luma's wire
+// Package luma is the only code that talks to the Luma API (docs/pcr/0003). It maps Luma's wire
 // format to this service's own types, so nothing outside this package depends on Luma's JSON.
 package luma
 

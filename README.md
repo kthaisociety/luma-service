@@ -28,11 +28,14 @@ go run ./cmd/api
 curl -H "X-Service-Secret: $(grep ^LUMA_SERVICE_SECRET .env | cut -d= -f2-)" localhost:8001/v1/tiers
 ```
 
-Tests: `go vet ./... && go test -race ./...`. They never call the real Luma API.
+Tests: `make test` (`go vet ./...` and `go test -race ./...`; database tests need `docker compose up -d`). They never call the real Luma API.
+
+The schema is SQL files in `internal/database/migrations/`, applied by the server at startup
+([PCR 0006](docs/pcr/0006-sql-migrations.md)).
 
 ## Configuration
 
-All from env ([PCR 0002](docs/pcr/0002-config-from-env.md)); see `.env.example`.
+All from env ([PCR 0001](docs/pcr/0001-config-from-env.md)); see `.env.example`.
 
 | Variable | Secret | |
 |---|---|---|

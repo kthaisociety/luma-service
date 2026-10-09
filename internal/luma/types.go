@@ -50,7 +50,7 @@ type Member struct {
 	Answers   []Answer  `json:"answers"`
 }
 
-// Answer is a member's answer to a registration question. Values is always a list (docs/adr/0002):
+// Answer is a member's answer to a registration question. Values is always a list (docs/adr/0001):
 // one item for single-choice and text answers, several for multi-select, none when unanswered.
 type Answer struct {
 	QuestionID string   `json:"question_id"`
@@ -177,7 +177,7 @@ func answerValues(raw json.RawMessage) []string {
 		}
 		return []string{"false"}
 	}
-	// A "company" answer: only the company name is kept for now (docs/adr/0002).
+	// A "company" answer: only the company name is kept for now (docs/adr/0001).
 	var company struct {
 		Company *string `json:"company"`
 	}

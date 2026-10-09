@@ -1,4 +1,4 @@
-# 0004. Luma is called only through internal/luma
+# 0003. Luma is called only through internal/luma
 
 Status: Accepted
 

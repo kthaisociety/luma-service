@@ -30,9 +30,12 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	// Connected but not used yet: whether it holds a sync or a cache is open (docs/adr/0001).
+	// Connected but not used yet: whether it holds a sync or a cache is still open.
 	db, err := database.Open(ctx, cfg.DatabaseURL)
 	if err != nil {
+		log.Fatal(err)
+	}
+	if err := database.Migrate(ctx, db); err != nil {
 		log.Fatal(err)
 	}
 
