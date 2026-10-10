@@ -13,6 +13,6 @@ Words as this project uses them. Luma's own names are in parentheses where they 
 - **Member**: a contact whose membership in a tier is `approved`. The service only serves approved members.
 - **Registration question**: a question asked when joining a tier, e.g. graduation year or areas of interest.
 - **Answer** (registration answer): a member's answer to one question, always a list of strings here
-  ([ADR 0002](docs/adr/0002-answers-as-string-lists.md)).
+  ([ADR 0001](docs/adr/0001-answers-as-string-lists.md)).
 - **Caller**: another KTHAIS service using this one, e.g. growth-portal. Authenticates with the
   **service secret**.

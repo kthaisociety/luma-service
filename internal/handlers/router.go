@@ -1,5 +1,5 @@
-// Package handlers is the HTTP layer. It depends on the interfaces below, not on concrete clients
-// (docs/adr/0004), so tests can run it against fakes.
+// Package handlers is the HTTP layer. It depends on the interfaces below, not on concrete clients,
+// so tests can run it against fakes.
 package handlers
 
 import (
@@ -43,7 +43,7 @@ func NewRouter(d Deps) *gin.Engine {
 	return r
 }
 
-// requireServiceSecret rejects any request without the exact shared secret (docs/pcr/0005). An empty
+// requireServiceSecret rejects any request without the exact shared secret (docs/pcr/0004). An empty
 // configured secret rejects everything: it never means "no secret required".
 func requireServiceSecret(secret string) gin.HandlerFunc {
 	return func(c *gin.Context) {

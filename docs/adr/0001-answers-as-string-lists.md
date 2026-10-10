@@ -1,4 +1,4 @@
-# 0002. Registration answers are lists of strings
+# 0001. Registration answers are lists of strings
 
 Status: Accepted
 

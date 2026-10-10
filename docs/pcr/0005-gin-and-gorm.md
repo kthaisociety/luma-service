@@ -1,4 +1,4 @@
-# 0006. Gin and GORM, like every KTHAIS Go service
+# 0005. Gin and GORM, like every KTHAIS Go service
 
 Status: Accepted
 

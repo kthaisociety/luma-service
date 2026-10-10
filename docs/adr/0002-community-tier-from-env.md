@@ -1,4 +1,4 @@
-# 0003. The Community tier is set by environment
+# 0002. The Community tier is set by environment
 
 Status: Accepted
 

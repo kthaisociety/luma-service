@@ -1,4 +1,4 @@
-# 0005. Callers authenticate with a shared secret
+# 0004. Callers authenticate with a shared secret
 
 Status: Accepted
 

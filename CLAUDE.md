@@ -9,7 +9,7 @@ and the Community tier's members. Go, Gin, GORM, Postgres. Internal only: other 
 - Local Postgres: `docker compose up -d`
 - Config: `cp .env.example .env`, then fill in the secrets
 - Run: `go run ./cmd/api` (listens on `127.0.0.1:8001` with the example env)
-- Test: `go vet ./... && go test -race ./...`
+- Test: `make test` (needs `docker compose up -d`; `go vet ./... && go test -race ./...`)
 - Image: `docker build -t luma-service .`
 
 ## Layout
@@ -18,13 +18,14 @@ and the Community tier's members. Go, Gin, GORM, Postgres. Internal only: other 
 - `internal/config`: env, validated at boot
 - `internal/luma`: the Luma API client and this service's types; the only code that calls Luma
 - `internal/handlers`: Gin routes; depend on interfaces, not on clients
-- `internal/database`: Postgres connection
+- `internal/database`: Postgres connection and migrations (`migrations/*.sql`, applied at startup)
 
 ## Rules
 
 - Read `CONTEXT.md` for vocabulary, `docs/adr/` for decisions and `docs/pcr/` for conventions before
   changing a part they cover. Record a new decision as a new ADR or PCR, never by editing an accepted one.
-- Only `internal/luma` calls Luma (PCR 0004). Tests never call the real Luma API.
-- What Postgres holds is undecided (ADR 0001): don't add models or a sync job without a new ADR.
+- Only `internal/luma` calls Luma (PCR 0003). Tests never call the real Luma API.
+- What Postgres holds (periodic sync or read-through cache) is undecided: don't add models or a sync job without a new ADR.
 - Never log or return API keys, secrets or members' personal data in errors.
+- Schema changes are new SQL files in `internal/database/migrations/`, never `AutoMigrate` (PCR 0006).
 - PR titles and commits are Conventional Commits (`feat:`, `fix:`, `docs:`, …): they drive releases.
