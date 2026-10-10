@@ -10,7 +10,6 @@ and the Community tier's members. Go, Gin, GORM, Postgres. Internal only: other 
 - Config: `cp .env.example .env`, then fill in the secrets
 - Run: `go run ./cmd/api` (listens on `127.0.0.1:8001` with the example env)
 - Test: `go vet ./... && go test -race ./...`
-- Acceptance tests (ticket branches only): `go test -tags acceptance ./test/acceptance/...`
 - Image: `docker build -t luma-service .`
 
 ## Layout
@@ -20,7 +19,6 @@ and the Community tier's members. Go, Gin, GORM, Postgres. Internal only: other 
 - `internal/luma`: the Luma API client and this service's types; the only code that calls Luma
 - `internal/handlers`: Gin routes; depend on interfaces, not on clients
 - `internal/database`: Postgres connection
-- `test/acceptance`: per-ticket acceptance tests
 
 ## Rules
 
